@@ -1,3 +1,14 @@
-# HandwrittenTextRecognition
+# Reconocimiento de Texto Escrito
 
-Este trabajo permite cargar una fotografía en la que aparezca algún texto manuscrito y devuelve el mismo texto digitalizado (respetando saltos de línea y palabras separadas). El código se ha generado enteramente en MATLAB, y consiste en varios pasos de preprocesado de la imagen (explicados en el archivo "explicacionProcesadoImagen"), extracción de características de las imágenes, entrenamiento de un modelo con imágenes del conjunto de datos MNIST y, por último, aplicación de este modelo sobre las características de nuestra imagen para obtener el texto digitalizado.
+Este trabajo permite cargar una fotografía en la que aparezca algún texto manuscrito y devuelve el mismo texto digitalizado (respetando saltos de línea y palabras separadas). El código se ha generado enteramente en MATLAB.
+
+## crearTrainData.m
+Creación del conjunto de características, obtenidas del conjunto de datos EMNIST (emnist-byclass.mat), preparado para entrenar un modelo. Las características utilizadas se extraen de las transformadas de Gabor obtenidas con diversos parámetros. Concretamente, de cada transformada se obtiene su desviación típica y su media.
+
+Utilizando estos datos, puede entrenarse el modelo que se desee. En este caso, el modelo escogido ha sido un SVM cudarático, entrenado fácilmente mediante la toolbox "Classification Learner". El modelo está contenido en "QuadSVM_std_mean.mat".
+
+## textRecognition
+
+Función principal que permite la carga de una imagen y devuelve el texto digitalizado. La función llama a otras funciones que se encargan de pasos contretos. La función "preproc" se encarga de preprocesar las imágenes (los pasos están detallados en el archivo "explicacionPreprocesadoImagenes"). "miGabor" obtiene las transformaciones de Gabor, y por último "getText" utiliza las características de Gabor y el modelo preentrenado para predecir el texto escrito.
+
+En el repositorio hay una imagen de prueba, "formularioPrueba", para introducir a esta función.
