@@ -1,2 +1,3 @@
 # HandwrittenTextRecognition
-Sistema de reconocimiento de texto manuscrito en fotografías (MATLAB)
+
+Este trabajo permite cargar una fotografía en la que aparezca algún texto manuscrito y devuelve el mismo texto digitalizado (respetando saltos de línea y palabras separadas). El código se ha generado enteramente en MATLAB, y consiste en varios pasos de preprocesado de la imagen (explicados en el archivo "explicacionProcesadoImagen"), extracción de características de las imágenes, entrenamiento de un modelo con imágenes del conjunto de datos MNIST y, por último, aplicación de este modelo sobre las características de nuestra imagen para obtener el texto digitalizado.
